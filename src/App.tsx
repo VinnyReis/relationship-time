@@ -3,11 +3,11 @@ import dayjs from 'dayjs'
 
 function App(){
   const [ time, setTime ] = useState<any>({});
-  let StartDate = '2024-09-28 16:40:25';
-  let EndDate = new Date;
-  let remainingTime = dayjs(StartDate).diff(dayjs(EndDate));
-  
+
   function TmrRefresh(){
+
+    let StartDate = '2024-09-28 16:40:25';
+    let remainingTime = dayjs(StartDate).diff(dayjs(new Date));
 
     let days = Math.abs(Math.floor(remainingTime / (1000 * 60 * 60 * 24)));
     let hours = Math.abs(Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
@@ -21,7 +21,6 @@ function App(){
       seconds
     });
 
-    EndDate = new Date;
     remainingTime -= 1000;
   };
 
