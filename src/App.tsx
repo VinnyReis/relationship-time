@@ -7,7 +7,7 @@ function App(){
   const getLastAnniversary = () => {
     //verify if we past day 28 of the month
     if(dayjs().date() >= 28){
-      return dayjs().hour(0).minute(0).second(0).format('YYYY-MM-DD HH:mm:ss');
+      return dayjs().date(28).hour(0).minute(0).second(0).format('YYYY-MM-DD HH:mm:ss');
     }
     else{
       return dayjs().date(28).hour(0).minute(0).second(0).subtract(1, 'month').format('YYYY-MM-DD HH:mm:ss');
