@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import dayjs from 'dayjs'
+import triggerConfetti from './confetti';
 
 function App(){
   const [ time, setTime ] = useState<any>({});
@@ -45,7 +46,7 @@ function App(){
 
   return (
     <>
-      <h1>Vinícius ❤️ Ana</h1>
+      <h1>Vinícius <span style={{ userSelect: 'none', WebkitUserSelect: 'none', cursor: 'pointer', position: 'relative', zIndex: '9999' }} onClick={triggerConfetti}>❤️</span>Ana</h1>
       <p>Estão juntos há exatamente</p>
       <p> {`${time.months} meses, ${time.days} dias, ${time.hours} horas, ${time.minutes} minutos e ${time.seconds} segundos`}</p>
     </>
