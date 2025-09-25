@@ -2,7 +2,7 @@ import { confetti } from '@tsparticles/confetti';
 
 export default function triggerConfetti() {
   confetti({
-    zIndex: 1,
+    zIndex: 100,
     particleCount: 200,
     spread: 360,
     ticks: 100,

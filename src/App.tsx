@@ -21,13 +21,15 @@ function App(){
     let lastAnniversary = getLastAnniversary();
     let remainingTime = dayjs().diff(lastAnniversary);
 
-    let months = dayjs().diff(startDate, 'month');
+    let years = dayjs().diff(startDate, 'year');
+    let months = dayjs().diff(startDate, 'month') - (years * 12);
     let days = Math.floor((remainingTime) / (1000 * 60 * 60 * 24));
     let hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     let minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
     let seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
 
     setTime({
+      years,
       months,
       days,
       hours,
@@ -46,9 +48,9 @@ function App(){
 
   return (
     <>
-      <h1>Vinícius <span style={{ userSelect: 'none', WebkitUserSelect: 'none', cursor: 'pointer', position: 'relative', zIndex: '9999' }} onClick={triggerConfetti}>❤️</span>Ana</h1>
+      <h1>Vinícius <span style={{ userSelect: 'none', WebkitUserSelect: 'none', cursor: 'pointer' }} onClick={triggerConfetti}>❤️</span>Ana</h1>
       <p>Estão juntos há exatamente</p>
-      <p> {`${time.months} meses, ${time.days} dias, ${time.hours} horas, ${time.minutes} minutos e ${time.seconds} segundos`}</p>
+      <p> {`${time.years >= 1 ? (`${time.years} ano,`) : ''} ${time.months} meses, ${time.days} dias, ${time.hours} horas, ${time.minutes} minutos e ${time.seconds} segundos`}</p>
     </>
   )
 }
